@@ -5,8 +5,8 @@ The R scripts included raw codes for generating coala models, simulating models 
 
 For a quick check of potential missing data effects, we recommend that researchers plot PCA scores with a color gradient showing per sample missingness. A cluster of high-missingness samples around the PCA origin, regardless of their genetic relationships, would indicate missing data effects and the samples around the PCA orign need to be interpreted with caution. 
 
+References cited above:
 
-References
+1. Jombart T, Ahmed I. adegenet 1.3-1: new tools for the analysis of genome-wide SNP data. Bioinformatics. 2011 Nov 1;27(21):3070-1. http://dx.doi.org/10.1093/bioinformatics/btr521
 
-Jombart T, Ahmed I. adegenet 1.3-1: new tools for the analysis of genome-wide SNP data. Bioinformatics. 2011 Nov 1;27(21):3070-1. http://dx.doi.org/10.1093/bioinformatics/btr521
-Wickham H (2016). ggplot2: Elegant Graphics for Data Analysis. Springer-Verlag New York. ISBN 978-3-319-24277-4, https://ggplot2.tidyverse.org
+2. Wickham H (2016). ggplot2: Elegant Graphics for Data Analysis. Springer-Verlag New York. ISBN 978-3-319-24277-4, https://ggplot2.tidyverse.org
