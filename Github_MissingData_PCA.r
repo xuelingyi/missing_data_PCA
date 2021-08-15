@@ -1,4 +1,4 @@
-## This script includes the R codes used in my paper Yi & Latch 2021 "Nonrandom missing data can bias PCA inference on populaiton genetics". 
+## This script includes the R codes used in the paper Yi & Latch 2021 "Nonrandom missing data can bias PCA inference of populaiton genetic structure". 
 
 library(coala)
 activate_ms()
@@ -23,7 +23,7 @@ p3 = coal_model(sample_size=c(rep(nindv, 3)), loci_number=nloci, loci_length=1, 
 ## with the default "IFS" mutation model, but probably does not matter because the length is fixed to 1
 
 p3_mig50 = p3 + feat_migration(rate = 50, symmetric = T)
-## the feat_migration_rate is 4Nem, and Ne=nindv=25, meaning that the real migration rate m=0.5 in this model
+## the feat_migration_rate is 4Nm, and N=nindv=25, meaning that the migration rate m=0.5 in this model
 
 cline_mig50 = p3 + 
   feat_migration(rate = 50, 1,2) + feat_migration(rate = 50, 2,1) +
@@ -261,7 +261,7 @@ rm(miss_data)
 plot_PCA_scores = function(data_name, scores_file, pca_file, my_shape, print=T, plot_title=NULL, shape_guide=T, ...){
 
   myplot = ggplot(scores_file[order(scores_file$indvmiss, decreasing=F),], 
-                  aes(x=PC1, y=PC2, shape=pop, fill=indvmiss)) + 
+                  aes(x=PC1, y=PC2, shape=pop, fill=indvmiss)) +       #### NOTE: fill color as a gradient based on individual missing values in the input data set; recommended for a quick check of potential missing data effects 
     geom_point(size=1.8, stroke=0.02, alpha=0.9) + 
     scale_shape_manual(values=my_shape) +
     guides(shape=ifelse(shape_guide==T, "legend", F))+
@@ -294,6 +294,9 @@ for (m in 1:length(datasets)) {
 }
 dev.off()
 rm(datasets)
+
+## note: plots can be modified into panels using functions ggarrange() and annotate_figure(). 
+
 
 
 ######### supplementary: PCA without centering ############
@@ -376,7 +379,10 @@ for (m in 1:length(SNP_data)) {
 #                 Null variances have been detected; corresponding alleles won't be standardized.
 
 
-###### PCA on the empirical data sets #######
+
+
+
+############## PCA on the empirical data sets #################
 sif = read.csv("sif_ref72.csv") # samples in TableS1
 sif = sif[order(sif$well),] 
 # so that vcf sample IDs are in the same order as sif sample IDs
@@ -400,4 +406,10 @@ for (i in datasets) {
   
   save(gl, pca, scores, file=paste0(i, "_glpca.RData"))
 }
+
+## note: empirical data are plotted using the same functions as above
+
+
+
+
 
