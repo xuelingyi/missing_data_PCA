@@ -1,5 +1,6 @@
 # missing_data_PCA
-This project provides the R scripts (MissingData_PCA.r) and the simulated data sets used in the paper Yi & Latch 2021 "Nonrandom missing data can bias PCA inference of population genetic structure". Please cite this paper if reusing the R scripts or the simulated data sets. 
+This project provides the R scripts (MissingData_PCA.r) and the simulated data sets used in the paper: 
+Yi, X. and Latch, E.K. (2021), Nonrandom missing data can bias PCA inference of population genetic structure. Molecular Ecology Resources. https://doi.org/10.1111/1755-0998.13498. Please cite this paper if reusing the R scripts or the simulated data sets. 
 
 The R scripts included raw codes for generating coala models, simulating models and extract results into SNP matrices (function sim_raw_snp_matrix), incorporating missing data into SNP matrices (function add_missing_data), running PCA with the mean imputation approach in the package adegenet (function glPca; Jombart & Ahmed 2011), and plotting PCA sores using the package ggplot2 (Wickham 2016). 
 
